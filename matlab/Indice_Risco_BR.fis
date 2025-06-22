@@ -1,0 +1,63 @@
+[System]
+Name='Indice_Risco_BR'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=20
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Health_Index_HI'
+Range=[0 1]
+NumMFs=5
+MF1='Excelente':'trapmf',[0 0 0.1 0.2]
+MF2='Bom':'trimf',[0.15 0.3 0.45]
+MF3='Regular':'trimf',[0.4 0.5 0.6]
+MF4='Ruim':'trimf',[0.55 0.7 0.85]
+MF5='Muito_Ruim':'trapmf',[0.8 0.9 1 1]
+
+[Input2]
+Name='Consequence_Factor_CF'
+Range=[0 1]
+NumMFs=4
+MF1='Baixo':'trapmf',[0 0 0.15 0.3]
+MF2='Medio':'trimf',[0.2 0.4 0.6]
+MF3='Alto':'trimf',[0.5 0.7 0.9]
+MF4='Critico':'trapmf',[0.8 0.9 1 1]
+
+[Output1]
+Name='Risk_Index_RI'
+Range=[0 1]
+NumMFs=5
+MF1='Muito_Baixo':'trapmf',[0 0 0.1 0.2]
+MF2='Baixo':'trimf',[0.15 0.3 0.45]
+MF3='Moderado':'trimf',[0.4 0.55 0.7]
+MF4='Alto':'trimf',[0.65 0.8 0.9]
+MF5='Critico':'trapmf',[0.85 0.95 1 1]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 2 (1) : 1
+1 3, 3 (1) : 1
+1 4, 4 (1) : 1
+2 1, 1 (1) : 1
+2 2, 2 (1) : 1
+2 3, 3 (1) : 1
+2 4, 4 (1) : 1
+3 1, 2 (1) : 1
+3 2, 3 (1) : 1
+3 3, 4 (1) : 1
+3 4, 5 (1) : 1
+4 1, 3 (1) : 1
+4 2, 4 (1) : 1
+4 3, 5 (1) : 1
+4 4, 5 (1) : 1
+5 1, 4 (1) : 1
+5 2, 5 (1) : 1
+5 3, 5 (1) : 1
+5 4, 5 (1) : 1

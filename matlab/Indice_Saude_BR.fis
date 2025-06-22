@@ -1,0 +1,140 @@
+[System]
+Name='Indice_Saude_BR'
+Type='mamdani'
+Version=2.0
+NumInputs=6
+NumOutputs=2
+NumRules=56
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Umidade'
+Range=[0 60]
+NumMFs=3
+MF1='Bom':'trapmf',[0 0 15 20]
+MF2='Atencao':'trapmf',[18 22 28 32]
+MF3='Critico':'trapmf',[30 35 60 60]
+
+[Input2]
+Name='Acidez_Operacao'
+Range=[0 0.5]
+NumMFs=3
+MF1='Baixa':'trapmf',[0 0 0.03 0.05]
+MF2='Moderada':'trapmf',[0.04 0.15 0.25 0.30]
+MF3='Alta':'trapmf',[0.25 0.30 0.5 0.5]
+
+[Input3]
+Name='Rigidez_Dieletrica'
+Range=[0 80]
+NumMFs=3
+MF1='Critica':'trapmf',[0 0 45 48]
+MF2='Aceitavel':'trapmf',[48 52 57 60]
+MF3='Boa':'trapmf',[55 60 80 80]
+
+[Input4]
+Name='Fator_Dissipacao'
+Range=[0 2.0]
+NumMFs=3
+MF1='Bom':'trapmf',[0 0 0.15 0.25]
+MF2='Aceitavel':'trapmf',[0.2 0.3 0.4 0.5]
+MF3='Alto':'trapmf',[0.4 0.5 2.0 2.0]
+
+[Input5]
+Name='Gases_Dissolvidos_Total'
+Range=[0 3000]
+NumMFs=3
+MF1='Normal':'trapmf',[0 0 800 900]
+MF2='Atenção':'trapmf',[850 900 2500 2550]
+MF3='Crítico':'trapmf',[2450 2500 3000 3000]
+
+[Input6]
+Name='Grau_Polimerizacao'
+Range=[150 1200]
+NumMFs=5
+MF1='Excelente':'trapmf',[700 900 1200 1200]
+MF2='Bom':'trimf',[500 650 800]
+MF3='Regular':'trimf',[350 450 550]
+MF4='Ruim':'trimf',[200 300 400]
+MF5='Muito_Ruim':'trapmf',[150 150 200 250]
+
+[Output1]
+Name='Indice_Saude'
+Range=[0 1]
+NumMFs=5
+MF1='Otimo':'trapmf',[0 0 0.1 0.2]
+MF2='Satisfatorio':'trimf',[0.15 0.3 0.45]
+MF3='Moderado':'trimf',[0.4 0.55 0.7]
+MF4='Critico':'trimf',[0.65 0.8 0.9]
+MF5='Muito_Critico':'trapmf',[0.85 0.95 1 1]
+
+[Output2]
+Name='Idade'
+Range=[0 100]
+NumMFs=5
+MF1='Nova':'trapmf',[0 0 10 20]
+MF2='Jovem':'trimf',[15 30 45]
+MF3='Adulta':'trimf',[40 55 70]
+MF4='Saturada':'trimf',[65 80 95]
+MF5='Fim_de_Vida':'trapmf',[90 98 100 100]
+
+[Rules]
+0 0 0 0 0 5, 5 5 (1) : 1
+0 0 0 0 0 4, 4 4 (1) : 1
+0 0 0 3 0 0, 4 4 (1) : 1
+3 2 0 0 0 0, 4 4 (1) : 1
+3 0 0 0 0 3, 2 3 (1) : 1
+0 3 0 0 0 3, 2 3 (1) : 1
+0 0 1 0 0 3, 2 3 (1) : 1
+2 2 0 0 0 3, 2 3 (1) : 1
+2 0 2 0 0 3, 2 3 (1) : 1
+0 2 2 0 0 3, 2 3 (1) : 1
+0 0 0 2 2 3, 3 3 (1) : 1
+0 0 0 3 3 3, 2 3 (1) : 1
+2 2 2 2 2 3, 2 3 (1) : 1
+1 1 3 1 1 3, 3 3 (1) : 1
+1 2 3 1 1 3, 3 3 (1) : 1
+2 1 3 1 1 3, 3 3 (1) : 1
+1 1 2 1 1 3, 3 3 (1) : 1
+1 1 3 2 1 3, 3 3 (1) : 1
+1 1 3 1 2 3, 3 3 (1) : 1
+3 0 0 0 0 2, 3 2 (1) : 1
+0 3 0 0 0 2, 3 2 (1) : 1
+0 0 1 0 0 2, 3 2 (1) : 1
+2 2 0 0 0 2, 3 2 (1) : 1
+2 0 2 0 0 2, 3 2 (1) : 1
+0 2 2 0 0 2, 3 2 (1) : 1
+0 0 0 2 2 2, 3 2 (1) : 1
+0 0 0 3 3 2, 3 2 (1) : 1
+2 2 2 2 2 2, 3 2 (1) : 1
+1 1 3 1 1 2, 2 2 (1) : 1
+1 2 3 1 1 2, 2 2 (1) : 1
+2 1 3 1 1 2, 2 2 (1) : 1
+1 1 2 1 1 2, 2 2 (1) : 1
+1 1 3 2 1 2, 2 2 (1) : 1
+1 1 3 1 2 2, 2 2 (1) : 1
+3 0 0 0 0 1, 4 1 (1) : 1
+0 3 0 0 0 1, 4 1 (1) : 1
+0 0 1 0 0 1, 4 1 (1) : 1
+2 2 0 0 0 1, 2 1 (1) : 1
+2 0 2 0 0 1, 2 1 (1) : 1
+0 2 2 0 0 1, 2 1 (1) : 1
+0 0 0 2 2 1, 2 1 (1) : 1
+0 0 0 3 3 1, 3 1 (1) : 1
+2 2 2 2 2 1, 2 1 (1) : 1
+1 1 3 1 1 1, 1 1 (1) : 1
+1 2 3 1 1 1, 2 1 (1) : 1
+2 1 3 1 1 1, 2 1 (1) : 1
+1 1 2 1 1 1, 2 1 (1) : 1
+1 1 3 2 1 1, 2 1 (1) : 1
+1 1 3 1 2 1, 2 1 (1) : 1
+3 3 1 0 0 0, 5 5 (1) : 1
+3 3 0 0 0 0, 5 5 (1) : 1
+3 0 1 0 0 0, 5 5 (1) : 1
+0 3 1 0 0 0, 5 5 (1) : 1
+0 0 3 3 3 0, 4 4 (1) : 1
+0 0 0 0 0 2, 2 2 (1) : 1
+0 0 0 0 0 1, 1 1 (1) : 1

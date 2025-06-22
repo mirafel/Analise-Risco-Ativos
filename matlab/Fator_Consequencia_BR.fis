@@ -1,0 +1,150 @@
+[System]
+Name='Fator_Consequencia'
+Type='mamdani'
+Version=2.0
+NumInputs=8
+NumOutputs=1
+NumRules=61
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Nivel_Sobrecarga'
+Range=[0 1]
+NumMFs=4
+MF1='Normal':'trapmf',[0 0 0.6 0.8]
+MF2='Alerta':'trimf',[0.75 0.85 0.9]
+MF3='Severa':'trimf',[0.85 0.9 0.95]
+MF4='Critica':'trapmf',[0.95 1 1 1]
+
+[Input2]
+Name='Carga_Media_MVA'
+Range=[0 1]
+NumMFs=3
+MF1='Baixa':'trapmf',[0 0 0.25 0.5]
+MF2='Media':'trimf',[0.3333 0.5833 0.8333]
+MF3='Alta':'trapmf',[0.75 0.9167 1 1]
+
+[Input3]
+Name='Cargas_Criticas'
+Range=[0 1]
+NumMFs=4
+MF1='Nao_Critica':'trapmf',[0 0 0.1 0.3]
+MF2='Moderadamente_Critica':'trimf',[0.3 0.45 0.6]
+MF3='Critica':'trimf',[0.6 0.75 0.9]
+MF4='Estrategica':'trapmf',[0.85 0.95 1 1]
+
+[Input4]
+Name='Proximidade_outros_edificios'
+Range=[0 1]
+NumMFs=4
+MF1='Nao_Conforme':'trapmf',[0 0 0.1457 0.2714]
+MF2='Limitrofe':'trimf',[0.2211 0.4221 0.6231]
+MF3='Segura':'trimf',[0.5729 0.7487 0.9246]
+MF4='Isolada':'trapmf',[0.8744 0.9497 1 1]
+
+[Input5]
+Name='Volume_Oleo(L)'
+Range=[0 1]
+NumMFs=2
+MF1='Pequeno':'trapmf',[0 0 0.25 0.5]
+MF2='Grande':'trapmf',[0.4 0.75 1 1]
+
+[Input6]
+Name='Penalidades(MVA)'
+Range=[0 1]
+NumMFs=4
+MF1='Nenhuma':'trapmf',[0 0 0.025 0.05]
+MF2='Leve':'trimf',[0.025 0.2 0.375]
+MF3='Moderada':'trimf',[0.3 0.5 0.7]
+MF4='Alta':'trapmf',[0.625 0.8 1 1]
+
+[Input7]
+Name='Nivel_Reservatorio_Oleo'
+Range=[0 1]
+NumMFs=4
+MF1='Muito_Baixo':'trapmf',[0 0 0.15 0.25]
+MF2='Baixo':'trimf',[0.2 0.35 0.5]
+MF3='Normal':'trapmf',[0.45 0.6 0.8 0.9]
+MF4='Alto':'trapmf',[0.85 0.95 1 1]
+
+[Input8]
+Name='Condicao_Corta_Chama'
+Range=[0 1]
+NumMFs=3
+MF1='Inexistente_ou_Inadequada':'trapmf',[0 0 0.1 0.3]
+MF2='Existente_com_Avarias':'trimf',[0.2 0.5 0.8]
+MF3='Adequada_e_Conforme':'trapmf',[0.7 0.9 1 1]
+
+[Output1]
+Name='Fator_Consequencia'
+Range=[0 1]
+NumMFs=5
+MF1='Muito_Baixa':'trapmf',[0 0 0.1 0.2]
+MF2='Baixa':'trimf',[0.15 0.3 0.45]
+MF3='Moderada':'trimf',[0.4 0.55 0.7]
+MF4='Alta':'trimf',[0.6 0.75 0.85]
+MF5='Critica':'trapmf',[0.8 0.9 1 1]
+
+[Rules]
+0 0 4 0 0 0 0 0, 5 (1) : 1
+4 0 0 0 0 0 0 0, 5 (1) : 1
+0 0 0 0 1 0 0 0, 5 (1) : 1
+0 0 0 1 1 0 0 0, 5 (1) : 1
+0 0 0 0 0 4 0 0, 5 (1) : 1
+3 0 4 0 0 0 0 0, 5 (1) : 1
+3 0 3 0 0 0 0 0, 5 (1) : 1
+4 0 0 0 2 0 0 0, 5 (1) : 1
+3 0 3 0 2 0 0 0, 5 (1) : 1
+0 0 4 0 2 0 0 0, 5 (1) : 1
+3 3 0 0 0 0 0 0, 5 (1) : 1
+0 3 4 0 0 0 0 0, 5 (1) : 1
+3 0 0 0 0 0 0 0, 4 (1) : 1
+0 0 3 0 0 0 0 0, 4 (1) : 1
+0 0 0 0 2 0 0 0, 4 (1) : 1
+0 0 0 0 0 3 0 0, 4 (1) : 1
+0 0 0 1 2 0 0 0, 4 (1) : 1
+0 0 0 1 1 0 0 0, 4 (1) : 1
+2 0 3 0 0 0 0 0, 4 (1) : 1
+2 3 0 0 0 0 0 0, 4 (1) : 1
+2 0 0 0 0 3 0 0, 4 (1) : 1
+2 0 0 1 0 0 0 0, 4 (1) : 1
+0 3 3 0 0 0 0 0, 4 (1) : 1
+0 3 0 1 0 0 0 0, 4 (1) : 1
+0 3 0 0 0 3 0 0, 4 (1) : 1
+3 2 0 0 0 0 0 0, 3 (1) : 1
+0 2 3 0 0 0 0 0, 3 (1) : 1
+2 0 2 0 0 0 0 0, 3 (1) : 1
+2 0 0 3 0 0 0 0, 3 (1) : 1
+0 2 0 3 0 0 0 0, 3 (1) : 1
+0 0 2 2 0 0 0 0, 3 (1) : 1
+0 0 2 0 0 2 0 0, 3 (1) : 1
+0 0 0 2 0 2 0 0, 3 (1) : 1
+2 2 2 0 0 0 0 0, 3 (1) : 1
+2 2 0 3 0 0 0 0, 3 (1) : 1
+1 2 0 0 0 0 0 0, 2 (1) : 1
+1 0 2 0 0 0 0 0, 2 (1) : 1
+1 0 0 3 0 0 0 0, 2 (1) : 1
+1 0 0 0 0 2 0 0, 2 (1) : 1
+1 0 0 3 1 0 0 0, 2 (1) : 1
+1 0 0 3 0 2 0 0, 2 (1) : 1
+0 2 2 0 0 0 0 0, 2 (1) : 1
+0 2 0 3 0 0 0 0, 2 (1) : 1
+0 0 2 3 0 0 0 0, 2 (1) : 1
+0 0 0 3 0 2 0 0, 2 (1) : 1
+1 1 1 4 1 1 0 0, 1 (1) : 1
+1 1 1 4 0 1 0 0, 1 (1) : 1
+1 1 0 4 1 1 0 0, 1 (1) : 1
+1 0 1 4 1 1 0 0, 1 (1) : 1
+0 1 1 4 1 1 0 0, 1 (1) : 1
+0 0 0 0 0 0 1 0, 5 (1) : 1
+0 0 0 0 0 0 0 1, 5 (1) : 1
+0 0 0 0 0 0 0 2, 4 (1) : 1
+0 0 0 0 0 0 1 0, 5 (1) : 1
+0 0 0 0 0 0 4 0, 4 (1) : 1
+4 0 0 0 0 0 2 0, 5 (1) : 1
+0 0 4 0 0 0 0 2, 5 (1) : 1
+0 0 0 1 0 0 0 1, 5 (1) : 1
