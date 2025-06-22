@@ -21,7 +21,7 @@ Este repositório integra duas abordagens complementares para análise de risco 
 ## Estrutura do Repositório
 
 ```
-/TCC-MIRAFEL/
+/Analise-Risco-AtivosPublic/
 ├── /python/
 │   ├── Analise_Dados_Originais.py
 │   ├── Geração_Dados_SDV.py
