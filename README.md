@@ -26,14 +26,11 @@ Este repositório integra duas abordagens complementares para análise de risco 
 │   ├── Analise_Dados_Originais.py
 │   ├── Geração_Dados_SDV.py
 │   ├── Classificação_Novos_Dados.py
-│   └── Validação_Novos_Dados.py
+│   └── Validação_Novos_Dados.py   
 │
 ├── /matlab/
 │   ├── Cenario_BR.m
 │   └── Analise_Ativo_Especifico.m
-│
-├── Dados Fis FC.csv
-├── Dados Fis HI.csv
 └── README.md
 ```
 
