@@ -21,7 +21,7 @@ Este repositório integra duas abordagens complementares para análise de risco 
 ## Estrutura do Repositório
 
 ```
-/Analise-Risco-AtivosPublic/
+/Analise-Risco-Ativos/
 ├── /python/
 │   ├── Analise_Dados_Originais.py
 │   ├── Geração_Dados_SDV.py
